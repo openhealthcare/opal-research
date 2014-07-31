@@ -12,3 +12,4 @@ coverage-js
 bower_components
 *~
 *#
+opal_research.egg-info
