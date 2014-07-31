@@ -3,6 +3,7 @@ Models for the OPAL Research study plugin
 """
 from django.contrib.auth.models import User
 from django.db import models
+from django.dispatch import receiver
 
 class ResearchStudy(models.Model):
     """
@@ -23,3 +24,35 @@ class ResearchStudy(models.Model):
 
     def __unicode__(self):
         return unicode(self.name)
+
+    @property
+    def team_name(self):
+        """
+        Return the sanitised team name.
+        """
+        return self.name.lower().replace(' ', '_')
+
+    
+@receiver(models.signals.post_save, sender=ResearchStudy)
+def create_teams_for_study(sender, **kwargs):
+    """
+    If we have just created a new study we should now set up the teams
+    for that study. 
+    """
+    if kwargs['created']:
+        study = kwargs['instance']
+        from opal.models import Team
+
+        study_team = Team(name=study.team_name,
+                          title=study.name)
+        study_team.save()
+
+        teams = [
+            ('Scientist', 'scientist'),
+            ('Research Nurse', 'research_nurse')
+        ]
+
+        for title, name in teams:
+            team = Team(name=name, title=title, active=True, parent=study_team, restricted=True)
+            team.save()
+    return
