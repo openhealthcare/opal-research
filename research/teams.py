@@ -8,9 +8,14 @@ from research.models import ResearchStudy
 def get_study_teams(user):
     """
     Given a USER, return a list of study teams that this user can see.
+    
+    If USER is not authenticated, just return []
     """
     #    Go through study roles, getting those for which this user is that role.
     teams = []
+
+    if not user.is_authenticated():
+        return teams
 
     clinical_leads = user.clinical_lead_user.all()
     if clinical_leads:
