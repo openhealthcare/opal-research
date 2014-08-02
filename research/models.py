@@ -44,6 +44,7 @@ def create_teams_for_study(sender, **kwargs):
         from opal.models import Team
 
         study_team = Team(name=study.team_name,
+                          restricted=True,
                           title=study.name)
         study_team.save()
 
