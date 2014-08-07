@@ -32,6 +32,8 @@ def get_study_teams(user):
             teams.append(study_team)
             teams.append(Team.objects.get(parent=study_team, 
                                           name='research_nurse'))
+            teams.append(Team.objects.get(parent=study_team, 
+                                          name='scientist'))
 
     research_nurses = user.research_nurse_user.all()
     if research_nurses:
