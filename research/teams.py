@@ -28,6 +28,7 @@ def get_study_teams(user):
     researchers = user.researcher_user.all()
     if researchers:
         for study in researchers:
+            print study.team_name
             study_team = Team.objects.get(name=study.team_name)
             teams.append(study_team)
             teams.append(Team.objects.get(parent=study_team, 

@@ -18,6 +18,6 @@ def get_study_schemas():
     """
     schemas = collections.defaultdict(dict)
     for study in ResearchStudy.objects.all():
-        schemas[study.team_name]['research_nurse'] = research_nurse_schema
-        schemas[study.team_name]['scientist'] = scientist_schema
+        schemas[study.team_name][study.team_name + '_research_nurse'] = research_nurse_schema
+        schemas[study.team_name][study.team_name + '_scientist'] = scientist_schema
     return schemas

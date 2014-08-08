@@ -35,7 +35,7 @@ class ResearchStudy(models.Model):
         """
         Return the sanitised team name.
         """
-        return self.name.lower().replace(' ', '_')
+        return self.name.lower().replace(' ', '_').replace('-', '_')
 
 
 SpeciminLookupList = type(*lookup_list('specimin', module=__name__))
@@ -73,8 +73,8 @@ def create_teams_for_study(sender, **kwargs):
         study_team.save()
 
         teams = [
-            ('Scientist', 'scientist'),
-            ('Research Nurse', 'research_nurse')
+            ('Scientist', study.team_name + '_scientist'),
+            ('Research Nurse', study.team_name + '_research_nurse')
         ]
 
         for title, name in teams:
