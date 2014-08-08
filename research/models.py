@@ -5,6 +5,11 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.dispatch import receiver
 
+from opal.models import EpisodeSubrecord, Synonym
+from opal.utils.fields import ForeignKeyOrFreeText
+from opal.utils.models import lookup_list
+
+
 class ResearchStudy(models.Model):
     """
     An individul research study being conducted.
@@ -31,6 +36,25 @@ class ResearchStudy(models.Model):
         Return the sanitised team name.
         """
         return self.name.lower().replace(' ', '_')
+
+
+SpeciminLookupList = type(*lookup_list('specimin', module=__name__))
+SpeciminAppearanceLookupList = type(*lookup_list('specimin_appearance', module=__name__))
+
+    
+class LabSpecimin(EpisodeSubrecord):
+    _sort = 'date_collected'
+
+    specimin_type     = ForeignKeyOrFreeText(SpeciminLookupList)
+    date_collected    = models.DateField(blank=True, null=True)
+    volume            = models.CharField(max_length=200, blank=True, null=True)
+    appearance        = ForeignKeyOrFreeText(SpeciminAppearanceLookupList)
+    epithelial_cell   = models.CharField(max_length=200, blank=True, null=True)
+    white_blood_cells = models.CharField(max_length=200, blank=True, null=True)
+    date_shipped      = models.DateField(blank=True, null=True)
+    biobanking        = models.BooleanField(default=False)
+    date_biobanked    = models.DateField(blank=True, null=True)
+    volume_biobanked  = models.CharField(max_length=200, blank=True, null=True)
 
     
 @receiver(models.signals.post_save, sender=ResearchStudy)
