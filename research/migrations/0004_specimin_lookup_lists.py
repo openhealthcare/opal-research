@@ -18,8 +18,8 @@ class Migration(DataMigration):
             ('Bronchial aspirates', None)
         ]
 
-        content_type = orm['contenttypes.ContentType'].objects.get(app_label='research', 
-                                                                   model='specimin')
+        content_type, _ = orm['contenttypes.ContentType'].objects.get_or_create(app_label='research', 
+                                                                             model='specimin')
         for specimin, synonyms in specimins:
             specimin = orm.Specimin(name=specimin)
             specimin.save()
