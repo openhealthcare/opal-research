@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.dispatch import receiver
 
-from opal.models import EpisodeSubrecord, Synonym
+from opal.models import EpisodeSubrecord, Synonym, Episode
 from opal.utils.fields import ForeignKeyOrFreeText
 from opal.utils.models import lookup_list
 

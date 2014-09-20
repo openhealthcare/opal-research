@@ -6,8 +6,10 @@ from opal.utils import OpalPlugin
 from research.flow import get_study_flows
 from research.schema import get_study_schemas
 from research.teams import get_study_teams
+from research.urls import urlpatterns
 
 class ResearchStudyPlugin(OpalPlugin):
+    urls        = urlpatterns
     javascripts = {
         'opal.controllers': [
             'js/research/controllers/research_hospital_number.js'
