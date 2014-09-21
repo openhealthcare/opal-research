@@ -1,1 +1,18 @@
 {% include 'microbiology_test.html' %}
+<span ng-show="item.significant_organism">
+  Significant Organism: [[ item.organism_details ]]
+  <br />
+  Susceptibility: [[ item.antimicrobial_susceptibility ]]
+  <br />
+</span>
+<span ng-show="item.retrieved">
+  Retrieved: [[ item.date_retrieved | shortDate ]]
+  <br />
+</span>
+<span ng-show="item.biobanked">
+  Biobanked: [X] ([[item.freezer_box_number]])
+  <br />
+</span>
+ESBL: [[ item.esbl|boxed ]] <br />
+Carbapenemase: [[ item.carbapenemase | boxed ]]
+
