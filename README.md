@@ -18,3 +18,4 @@ Add the settings so that you point at these :
 LIST_SCHEMA_RESEARCH_NURSE
 LIST_SCHEMA_SCIENTIST
 
+You will need to create any models specific to your study (For data collection) in your instance.
