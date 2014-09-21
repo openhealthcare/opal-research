@@ -4,6 +4,7 @@ Plugin definition
 from opal.utils import OpalPlugin
 
 from research.flow import get_study_flows
+from research.roles import get_study_roles
 from research.schema import get_study_schemas
 from research.teams import get_study_teams
 from research.urls import urlpatterns
@@ -23,3 +24,6 @@ class ResearchStudyPlugin(OpalPlugin):
 
     def flows(self):
         return get_study_flows()
+
+    def roles(self, user):
+        return get_study_roles(user)

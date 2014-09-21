@@ -30,6 +30,9 @@ class ResearchStudy(models.Model):
     def __unicode__(self):
         return unicode(self.name)
 
+    class Meta:
+        verbose_name_plural = 'Research Studies'
+
     @property
     def team_name(self):
         """
