@@ -23,7 +23,7 @@ controllers.controller(
             var tag = $routeParams.tag;
             var teams = episode.tagging[0].makeCopy();
             teams[tag] = true;
-            teams[tag+'_research_nurse'] = true,
+            teams[tag+'_research_practitioner'] = true,
             teams[tag+'_scientist'] = true
             var location = episode.location[0].makeCopy();
             location.category = 'Research'

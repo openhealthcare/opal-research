@@ -19,7 +19,7 @@ def get_study_roles(user):
         roles[study.team_name].append('researcher')
 
     for study in user.research_nurse_user.all():
-        roles[study.team_name].append('research_nurse')
+        roles[study.team_name].append('research_practitioner')
 
     for study in user.scientist_user.all():
         roles[study.team_name].append('scientist')

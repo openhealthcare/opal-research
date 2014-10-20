@@ -23,6 +23,7 @@ class ResearchStudy(models.Model):
     researcher     = models.ManyToManyField(User, blank=True, null=True,
                                             related_name='researcher_user')
     research_nurse = models.ManyToManyField(User, blank=True, null=True,
+                                            verbose_name='Research Practitioner',
                                             related_name='research_nurse_user')
     scientist      = models.ManyToManyField(User, blank=True, null=True,
                                             related_name='scientist_user')
@@ -60,7 +61,7 @@ def create_teams_for_study(sender, **kwargs):
 
         teams = [
             ('Scientist', study.team_name + '_scientist'),
-            ('Research Nurse', study.team_name + '_research_nurse')
+            ('Research Practitioner', study.team_name + '_research_practitioner')
         ]
 
         for title, name in teams:

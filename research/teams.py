@@ -32,7 +32,7 @@ def get_study_teams(user):
             study_team = Team.objects.get(name=study.team_name)
             teams.append(study_team)
             teams.append(Team.objects.get(parent=study_team, 
-                                          name=study.team_name + '_research_nurse'))
+                                          name=study.team_name + '_research_practitioner'))
             teams.append(Team.objects.get(parent=study_team, 
                                           name=study.team_name + '_scientist'))
 
@@ -42,7 +42,7 @@ def get_study_teams(user):
             study_team = Team.objects.get(name=study.team_name)
             teams.append(study_team)
             teams.append(Team.objects.get(parent=study_team, 
-                                          name=study.team_name + '_research_nurse'))
+                                          name=study.team_name + '_research_practitioner'))
 
     scientists = user.scientist_user.all()
     if scientists:
