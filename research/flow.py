@@ -15,6 +15,10 @@ def get_study_flows():
             'enter': {
                 'controller': 'ResearchStudyHospitalNumberCtrl',
                 'template'  : '/templates/modals/hospital_number.html'
+            },
+            'exit': {
+                'controller': 'ResearchStudyDischargeCtrl',
+                'template'  : '/research/templates/discharge.html' 
             }
         }
     return flows 

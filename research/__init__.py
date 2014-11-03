@@ -13,7 +13,8 @@ class ResearchStudyPlugin(OpalPlugin):
     urls        = urlpatterns
     javascripts = {
         'opal.controllers': [
-            'js/research/controllers/research_hospital_number.js'
+            'js/research/controllers/research_hospital_number.js',
+            'js/research/controllers/discharge.js'
         ]
     }
     def restricted_teams(self, user):
