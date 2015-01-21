@@ -9,13 +9,13 @@ from opal.utils import stringport
 
 from research.models import ResearchStudy
 
-research_nurse_schema = stringport(settings.LIST_SCHEMA_RESEARCH_PRACTITIONER)
-scientist_schema = stringport(settings.LIST_SCHEMA_SCIENTIST)
-
 def get_study_schemas():
     """
     Return a dict of schemas to be used with our research studies.
     """
+    research_nurse_schema = stringport(settings.LIST_SCHEMA_RESEARCH_PRACTITIONER)
+    scientist_schema = stringport(settings.LIST_SCHEMA_SCIENTIST)
+
     schemas = collections.defaultdict(dict)
     for study in ResearchStudy.objects.filter(active=True):
         schemas[study.team_name][study.team_name + '_research_practitioner'] = research_nurse_schema
