@@ -42,6 +42,15 @@ class ResearchStudy(models.Model):
         return self.name.lower().replace(' ', '_').replace('-', '_')
 
 
+class StudyParticipation(EpisodeSubrecord):
+    """
+    Store details pertaining to an episode of care and how it relates to the
+    current study.
+    """
+    _is_singleton = True
+    _icon = 'fa fa-book'
+
+    study_id = models.CharField(max_length=200, blank=True, null=True)
 
 
 @receiver(models.signals.post_save, sender=ResearchStudy)

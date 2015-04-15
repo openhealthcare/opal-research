@@ -25,11 +25,13 @@ controllers.controller(
             teams[tag] = true;
             teams[tag+'_research_practitioner'] = true,
             teams[tag+'_scientist'] = true
-            var location = episode.location[0].makeCopy();
-            location.category = 'Research'
+            
+            var ep = episode.makeCopy()
+
+            ep.category = 'Research'
 
             $q.all([
-                episode.location[0].save(location),
+                episode.save(ep),
                 episode.tagging[0].save(teams)
             ]).then(function(){
                 episode.active = true;
