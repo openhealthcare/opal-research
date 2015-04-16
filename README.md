@@ -9,7 +9,7 @@ data export to CSV for subsequent data analysis.
 Custom data collection per study as well as the ability to 'import' patient / episode details from
 existing in/outpatient teams.
 
-Supports many concurrent, single or multi-site studies.
+Supports many concurrent studies. Single or multi-site studies catered for.
 
 
 ## Installation
