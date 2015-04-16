@@ -1,6 +1,12 @@
 # opal-research
 
-Research study plugin for OPAL
+An OPAL plugin for running data collection for research studies.
+
+Features fine grained access control (Clinical Lead, Researcher, Research Nurse, Lab technician roles 
+out of the box), with blinding, custom data field collection, audit trail, query interface and
+data export to CSV for subsequent data analysis.
+
+Supports many concurrent, single or multi-site studies.
 
 
 ## Installation
