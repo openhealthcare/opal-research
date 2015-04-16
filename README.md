@@ -1,10 +1,13 @@
 # OPAL Research
 
-An [OPAL](http://opal.openhealthcare.org.uk) plugin for running data collection for research studies.
+An [OPAL](http://opal.openhealthcare.org.uk) plugin for running research studies.
 
 Features fine grained access control (Clinical Lead, Researcher, Research Nurse, Lab technician roles 
-out of the box), with blinding, custom data field collection, audit trail, query interface and
+out of the box), with blinding, audit trail, query interface and
 data export to CSV for subsequent data analysis.
+
+Custom data collection per study as well as the ability to 'import' patient / episode details from
+existing in/outpatient teams.
 
 Supports many concurrent, single or multi-site studies.
 
