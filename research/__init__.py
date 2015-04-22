@@ -1,7 +1,7 @@
 """
 Plugin definition
 """
-from opal.utils import OpalPlugin
+from opal.core.plugins import OpalPlugin
 
 from research.flow import get_study_flows
 from research.roles import get_study_roles
