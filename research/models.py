@@ -6,8 +6,8 @@ from django.db import models
 from django.dispatch import receiver
 
 from opal.models import EpisodeSubrecord, Synonym, Episode
-from opal.utils.fields import ForeignKeyOrFreeText
-from opal.utils.models import lookup_list
+from opal.core.fields import ForeignKeyOrFreeText
+from opal.core.lookuplists import lookup_list
 
 
 class ResearchStudy(models.Model):
