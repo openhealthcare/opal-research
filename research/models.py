@@ -65,6 +65,7 @@ def create_teams_for_study(sender, **kwargs):
 
         study_team = Team(name=study.team_name,
                           restricted=True,
+                          direct_add=False,
                           title=study.name)
         study_team.save()
 
