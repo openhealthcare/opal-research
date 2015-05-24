@@ -1,7 +1,7 @@
 """
 Plugin definition
 """
-from opal.core.plugins import OpalPlugin
+from opal.core import plugins
 
 from research.flow import get_study_flows
 from research.roles import get_study_roles
@@ -9,7 +9,7 @@ from research.schema import get_study_schemas
 from research.teams import get_study_teams
 from research.urls import urlpatterns
 
-class ResearchStudyPlugin(OpalPlugin):
+class ResearchStudyPlugin(plugins.OpalPlugin):
     urls        = urlpatterns
     javascripts = {
         'opal.controllers': [
@@ -28,3 +28,5 @@ class ResearchStudyPlugin(OpalPlugin):
 
     def roles(self, user):
         return get_study_roles(user)
+
+plugins.register(ResearchStudyPlugin)
