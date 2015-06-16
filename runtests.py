@@ -28,6 +28,8 @@ settings.configure(DEBUG=True,
                                    'opal.tests',
                                    'research',))
 
+import django
+django.setup()
 
 from django.test.runner import DiscoverRunner
 test_runner = DiscoverRunner(verbosity=1)
