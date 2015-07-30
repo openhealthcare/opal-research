@@ -30,13 +30,16 @@ controllers.controller(
 
             ep.category = 'Research'
 
-            $q.all([
-                episode.save(ep),
-                episode.tagging[0].save(teams)
-            ]).then(function(){
-                episode.active = true;
-                $modalInstance.close(episode);                
-            });
+            episode.save(ep).then(
+                function(){
+                    episode.tagging[0].save(teams).then(
+                        function(){
+                            episode.active = true;
+                            $modalInstance.close(episode);
+                        }
+                    );
+                }
+            );            
         };
 
         //
