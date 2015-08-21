@@ -75,7 +75,7 @@ controllers.controller(
                     schema: function() { return schema; },
                     options: function() { return options; },
                     demographics: function() {
-                        return { hospital_number: $scope.hospitalNumber }
+                        return { hospital_number: $scope.model.hospitalNumber }
                     }
                 }
             }).result.then(function(result) {
