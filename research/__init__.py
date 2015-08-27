@@ -17,6 +17,9 @@ class ResearchStudyPlugin(plugins.OpalPlugin):
             'js/research/controllers/discharge.js'
         ]
     }
+
+    actions = 'actions/remove_research_patient.html',
+
     def restricted_teams(self, user):
         return get_study_teams(user)
 
