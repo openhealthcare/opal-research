@@ -12,11 +12,11 @@ class ResearchStudy(models.Model):
     """
     An individul research study being conducted.
 
-    We store some metadata and study personnel by role. 
+    We store some metadata and study personnel by role.
     """
     name           = models.CharField(max_length=200)
     active         = models.BooleanField(default=False)
-    clinical_lead  = models.ManyToManyField(User, blank=True, null=True, 
+    clinical_lead  = models.ManyToManyField(User, blank=True, null=True,
                                             related_name='clinical_lead_user')
     researcher     = models.ManyToManyField(User, blank=True, null=True,
                                             related_name='researcher_user')
@@ -55,7 +55,7 @@ class StudyParticipation(EpisodeSubrecord):
 def create_teams_for_study(sender, **kwargs):
     """
     If we have just created a new study we should now set up the teams
-    for that study. 
+    for that study.
     """
     if kwargs['created']:
         study = kwargs['instance']
@@ -73,8 +73,8 @@ def create_teams_for_study(sender, **kwargs):
         ]
 
         for title, name in teams:
-            team = Team(name=name, title=title, 
-                        active=True, parent=study_team, restricted=True, 
+            team = Team(name=name, title=title,
+                        active=True, parent=study_team, restricted=True,
                         direct_add=False)
             team.save()
     return
