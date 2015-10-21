@@ -3,13 +3,15 @@ Research study roles !
 """
 import collections
 
-from research.models import ResearchStudy
-
 def get_study_roles(user):
     """
     Given a USER, return a set of roles that this user fills for our
     active research studies.
     """
+    # This has to be here because Django wants to make sure it's the first
+    # thing to import models and gets distinctly snippish if you beat it.
+    from research.models import ResearchStudy
+    
     roles = collections.defaultdict(list)
 
     for study in user.clinical_lead_user.all():
