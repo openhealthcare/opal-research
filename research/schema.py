@@ -7,12 +7,14 @@ from django.conf import settings
 
 from opal.utils import stringport
 
-from research.models import ResearchStudy
-
 def get_study_schemas():
     """
     Return a dict of schemas to be used with our research studies.
     """
+    # This has to be here because Django wants to make sure it's the first
+    # thing to import models and gets distinctly snippish if you beat it.
+    from research.models import ResearchStudy
+
     research_nurse_schema = stringport(settings.LIST_SCHEMA_RESEARCH_PRACTITIONER)
     scientist_schema = stringport(settings.LIST_SCHEMA_SCIENTIST)
 

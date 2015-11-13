@@ -3,14 +3,16 @@ Research study teams!
 """
 from opal.models import Team
 
-from research.models import ResearchStudy
-
 def get_study_teams(user):
     """
     Given a USER, return a list of study teams that this user can see.
     
     If USER is not authenticated, just return []
     """
+    # This has to be here because Django wants to make sure it's the first
+    # thing to import models and gets distinctly snippish if you beat it.
+    from research.models import ResearchStudy
+
     #    Go through study roles, getting those for which this user is that role.
     teams = []
 

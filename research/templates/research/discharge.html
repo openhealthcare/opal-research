@@ -2,7 +2,7 @@
 {% load forms %}
 
 {% block icon_name %}fa fa-remove{% endblock %}
-{% block title %}Discharge{% endblock %}
+{% block title %}Remove{% endblock %}
 {% block modal_body %}
 <form class="form-horizontal">
   {% radio label="Reason" model="editing.category" lookuplist="['Ineligible', 'Deceased', 'Duplicate']" %}
@@ -10,6 +10,6 @@
 </form>
 {% endblock %}
 {% block modal_save %}
-  <button class="btn btn-primary" ng-click="discharge()">Discharge</button>
+  <button class="btn btn-primary" ng-click="discharge()">Remove</button>
 {% endblock %}
 {% block modal_another %}{% endblock %}
