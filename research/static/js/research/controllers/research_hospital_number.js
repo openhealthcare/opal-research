@@ -25,7 +25,7 @@ controllers.controller(
             teams[tag] = true;
             teams[tag+'_research_practitioner'] = true,
             teams[tag+'_scientist'] = true
-            
+
             var ep = episode.makeCopy()
 
             ep.category = 'Research'
@@ -39,7 +39,7 @@ controllers.controller(
                         }
                     );
                 }
-            );            
+            );
         };
 
         //
@@ -128,11 +128,7 @@ controllers.controller(
         //
         $scope.add_for_patient = function(patient){
             var demographics = patient.demographics[0];
-            if(demographics.date_of_birth){
-                var dob = moment(demographics.date_of_birth, 'YYYY-MM-DD')
-                    .format('DD/MM/YYYY');
-                demographics.date_of_birth = dob;
-            }
+  
             modal = $modal.open({
                 templateUrl: '/templates/modals/add_episode_without_teams.html/',
                 controller: 'AddEpisodeCtrl',
