@@ -5,7 +5,7 @@ controllers.controller(
     'ResearchStudyHospitalNumberCtrl',
     function($scope, $modalInstance, $modal, $rootScope,
              $routeParams, $q,
-             schema, options,
+             options,
              Episode){
 
         $scope.model = {
@@ -18,7 +18,7 @@ controllers.controller(
         // teams and then kill the modal.
         //
         $scope.tag_and_close = function(episode){
-            if(!episode.newItem){ episode = new Episode(episode, schema); };
+            if(!episode.newItem){ episode = new Episode(episode); };
 
             var tag = $routeParams.tag;
             var teams = episode.tagging[0].makeCopy();
@@ -72,7 +72,6 @@ controllers.controller(
                 templateUrl: '/templates/modals/add_episode_without_teams.html/',
                 controller: 'AddEpisodeCtrl',
                 resolve: {
-                    schema: function() { return schema; },
                     options: function() { return options; },
                     demographics: function() {
                         return { hospital_number: $scope.model.hospitalNumber }
@@ -95,7 +94,7 @@ controllers.controller(
             if(patient.active_episode_id && _.keys(patient.episodes).length > 0){
                 // Offer to import the data from this episode.
                 for (var eix in patient.episodes) {
-                    patient.episodes[eix] = new Episode(patient.episodes[eix], schema);
+                    patient.episodes[eix] = new Episode(patient.episodes[eix]);
                 };
                 modal = $modal.open({
                     templateUrl: '/templates/modals/copy_to_category.html/',
@@ -137,7 +136,6 @@ controllers.controller(
                 templateUrl: '/templates/modals/add_episode_without_teams.html/',
                 controller: 'AddEpisodeCtrl',
                 resolve: {
-                    schema: function() { return schema; },
                     options: function() { return options; },
                     demographics: function() { return demographics; }
                 }
