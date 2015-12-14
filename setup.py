@@ -8,10 +8,10 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='opal-research',
-    version='0.1.2',
+    version='0.2.0',
     packages=['research'],
     include_package_data=True,
-    license='GPL3',  
+    license='GPL3',
     description='OPAL Plugin for research studies',
     long_description=README,
     url='http://opal.openhealthcare.org.uk/',
