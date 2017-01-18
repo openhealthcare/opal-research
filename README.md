@@ -1,6 +1,6 @@
 ## ! Important Notice !
 
-This Plugin application is unmaintained and significantly outdated.
+This Plugin is unmaintained and significantly outdated.
 
 Refer to the http://opal.openhealthcare.org.uk documentation for current information about Opal
 
