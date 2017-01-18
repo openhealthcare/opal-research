@@ -1,3 +1,10 @@
+## ! Important Notice !
+
+This Plugin application is unmaintained and significantly outdated.
+
+Refer to the http://opal.openhealthcare.org.uk documentation for current information about Opal
+
+
 # OPAL Research
 
 An [OPAL](http://opal.openhealthcare.org.uk) plugin for running research studies.
